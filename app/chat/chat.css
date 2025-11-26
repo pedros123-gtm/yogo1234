@@ -1,0 +1,344 @@
+.chat-icon {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    background: rgba(249 115 22);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .3s;
+    cursor: pointer;
+    z-index: 9999;
+}
+
+.chat-icon:hover {
+    background: rgb(225, 94, 9)
+}
+
+.chat-icon img {
+    width: 30px;
+}
+
+.chat-container {
+    position: fixed;
+    right: 15px;
+    bottom: calc(15px + 3.5rem + 15px);
+    max-width: 400px;
+    width: 94vw;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, .1), 0 4px 6px -4px rgba(0, 0, 0, .1);
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: 450ms;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 9999999;
+}
+
+.chat-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.chat-header {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.chat-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    opacity: .8;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.chat-close:hover {
+    opacity: 1;
+    scale: 1.1;
+}
+
+.chat-header-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 1rem;
+    background: rgba(249 115 22);
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+}
+
+.chat-header-text h2 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: white;
+    margin-bottom: 0 !important;
+    margin-top: 0 !important;
+}
+
+.chat-header-text p {
+    font-size: .8rem;
+    opacity: .8;
+    color: white;
+    margin-bottom: 0 !important;
+}
+
+.chat-header-status {
+    padding: 5px 1rem;
+    background: #fb923c;
+    font-size: .7rem;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.chat-header-status div {
+    width: 7px;
+    height: 7px;
+    background: #4ade80;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.chat-header-status span {
+    opacity: .8;
+    color: white;
+}
+
+.chat-input-container {
+    display: block;
+    width: 100%;
+    /*border-top: 1px solid #f5f5f5;*/
+}
+
+.chat-input-wrapper {
+    padding: 1rem 1rem .8rem;
+    padding-left: 1.5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    overflow: hidden;
+}
+
+#chat-input {
+    border: none;
+    flex: 1 1 0%;
+    overflow: hidden;
+    height: fit-content;
+    resize: none; /* убрать иконку */
+    overflow-y: auto;
+    line-height: 145%;
+}
+
+#chat-input:focus {
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+
+
+.chat-input-right {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 15px;
+}
+
+#chat-file {
+    border: none;
+    background: none;
+    padding-right: .6rem;
+}
+
+#chat-file img {
+    width: 1rem;
+    height: 1rem;
+    opacity: .4;
+}
+
+#chat-send {
+    background: rgba(249 115 22);
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chat-dialog {
+    height: 400px;
+    overflow-y: scroll;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.dialog-item-bot {
+    margin-top: .8rem;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    max-width: 85%;
+}
+
+.dialog-item-bot img.support {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.dialog-text {
+    padding: 5px 10px;
+    background: #ededed;
+    color: #222;
+    border-radius: 2px;
+    line-height: 130%;
+}
+
+.dialog-item-lox {
+    margin-top: .8rem;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    align-self: flex-end;
+    max-width: 85%;
+
+}
+
+.dialog-item-lox .dialog-text {
+    background: rgba(249 115 22);
+    color: white;
+}
+
+.chat-icon .notification-dot {
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    width: 14px;
+    height: 14px;
+    background-color: #ff4444;
+    border-radius: 50%;
+    display: none;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+/* Добавь в chat.css */
+.dialog-file {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    background: #f0f0f0;
+    border-radius: 8px;
+    margin: 4px 0;
+    border: 1px solid #e0e0e0;
+    max-width: 250px;
+}
+
+.dialog-file-icon {
+    width: 32px;
+    height: 32px;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+}
+
+.dialog-file-icon.image { background: white; }
+.dialog-file-icon.pdf { background: white; }
+.dialog-file-icon.doc { background: white; }
+.dialog-file-icon.txt { background: white; }
+.dialog-file-icon.other { background: white; }
+
+.dialog-file-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.dialog-file-name {
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 14px;
+}
+
+.dialog-item-lox .dialog-file-name {
+    color: white !important;
+}
+
+.dialog-item-lox .dialog-file-size {
+    color: white !important;
+}
+
+.dialog-item-lox .dialog-text div {
+    color: white !important;
+}
+
+.dialog-file-size {
+    font-size: 12px;
+    color: #666;
+    margin-top: 2px;
+}
+
+.dialog-image {
+    max-width: 100%;
+    object-fit: contain;
+    max-height: 200px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 4px 0;
+}
+
+.dialog-item-lox .dialog-file {
+    background: rgba(249, 115, 22, 0.1);
+    border-color: rgba(249, 115, 22, 0.3);
+}
+
+.file-upload-progress {
+    width: 100%;
+    height: 4px;
+    background: #e0e0e0;
+    border-radius: 2px;
+    margin-top: 4px;
+    overflow: hidden;
+}
+
+.file-upload-progress-bar {
+    height: 100%;
+    background: rgba(249, 115, 22);
+    transition: width 0.3s ease;
+}
+
+@media (min-width: 768px) {
+    .chat-icon {
+        bottom: 15px !important;
+    }
+    
+    .cart-footer {
+        background-color: white !important ; 
+    }
+}
